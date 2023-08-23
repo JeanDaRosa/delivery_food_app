@@ -1,3 +1,4 @@
+import 'package:delivery_demo/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shadow_clip/shadow_clip.dart';
 
@@ -20,7 +21,7 @@ class LandingScreen extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: ClipShadow(
               clipper: CustomClipperAppBar(),
-              boxShadow:const [
+              boxShadow: const [
                 BoxShadow(
                   color: AppColor.placeholder,
                   offset: Offset(0, 15),
@@ -71,13 +72,12 @@ class LandingScreen extends StatelessWidget {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Navigator.of(context)
-                            // .pushReplacementNamed(LoginScreen.routeName);
+                        Navigator.of(context).pushReplacementNamed(LoginScreen.routName);
                       },
                       child: const Text("Login"),
                     ),
                   ),
-                 const  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   SizedBox(
@@ -85,14 +85,11 @@ class LandingScreen extends StatelessWidget {
                     height: 50,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                        foregroundColor:
-                            MaterialStateProperty.all(AppColor.orange),
+                        backgroundColor: MaterialStateProperty.all(Colors.white),
+                        foregroundColor: MaterialStateProperty.all(AppColor.orange),
                         shape: MaterialStateProperty.all(
                           const StadiumBorder(
-                            side:
-                                BorderSide(color: AppColor.orange, width: 1.5),
+                            side: BorderSide(color: AppColor.orange, width: 1.5),
                           ),
                         ),
                       ),
