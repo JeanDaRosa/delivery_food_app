@@ -1,9 +1,9 @@
-import 'package:delivery_demo/screens/landing_screen.dart';
-import 'package:delivery_demo/screens/login_screen.dart';
+import 'package:delivery_demo/screens/login/landing_screen.dart';
+import 'package:delivery_demo/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import './const/colors.dart';
-import './screens/splash_screen.dart';
+import 'screens/login/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +37,30 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        textTheme: const TextTheme(),
+        textTheme: const TextTheme(
+          labelLarge: TextStyle(
+            color: AppColor.secondary,
+          ),
+          bodySmall: TextStyle(
+            color: AppColor.primary,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          titleSmall: TextStyle(
+            color: AppColor.secondary,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+          titleMedium: TextStyle(
+            color: AppColor.primary,
+            fontWeight: FontWeight.normal,
+            fontSize: 25,
+          ),
+          titleLarge: TextStyle(
+            color: AppColor.primary,
+            fontSize: 25,
+          ),
+        ),
       ),
       home: const SplashScreen(),
       routes: {

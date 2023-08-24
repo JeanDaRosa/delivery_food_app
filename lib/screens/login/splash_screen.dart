@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:delivery_demo/screens/landing_screen.dart';
+import 'package:delivery_demo/screens/login/landing_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/helper.dart';
+import '../../utils/helper.dart';
 
 class SplashScreen extends StatefulWidget {
-
   const SplashScreen({super.key});
 
   @override
@@ -14,8 +13,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // late Timer _timer;
-
   @override
   void initState() {
     Timer(const Duration(milliseconds: 4000), () {

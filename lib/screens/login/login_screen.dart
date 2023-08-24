@@ -1,6 +1,7 @@
+import 'package:delivery_demo/screens/login/components/custom_text_input.dart';
 import 'package:delivery_demo/utils/helper.dart';
 import 'package:flutter/material.dart';
-import '../const/colors.dart';
+import '../../const/colors.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routName = "/loginScreen";
@@ -26,24 +27,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
+                Text(
                   'Preencha as informações',
+                  style: Helper.getTheme(context).labelLarge,
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const Spacer(),
                 const CustomTextInput(
                   hintText: 'E-mail',
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const Spacer(),
                 const CustomTextInput(
                   hintText: 'Senha',
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const Spacer(),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
@@ -52,22 +48,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text('Login'),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const Spacer(),
                 GestureDetector(
                   onTap: () {},
                   child: const Text('Esqueceu a senha?'),
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
+                const Spacer(),
                 const Text(
                   'ou entre com',
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                const Spacer(),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
@@ -111,39 +101,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
+                const Spacer(
+                  flex: 4,
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Ainda não tem uma conta?',
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Registrese aqui',
+                      style: TextStyle(
+                        color: AppColor.orange,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomTextInput extends StatelessWidget {
-  const CustomTextInput({
-    required this.hintText,
-    super.key,
-  });
-  final String hintText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      decoration: ShapeDecoration(
-        color: Colors.grey[200],
-        shape: const StadiumBorder(),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: Colors.grey[400],
-          ),
-          contentPadding: const EdgeInsets.only(left: 20),
         ),
       ),
     );
