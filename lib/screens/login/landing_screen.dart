@@ -73,7 +73,7 @@ class LandingScreen extends StatelessWidget {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacementNamed(LoginScreen.routName);
+                        Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
                       },
                       child: const Text("Login"),
                     ),

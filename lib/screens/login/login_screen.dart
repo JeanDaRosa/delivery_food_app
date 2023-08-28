@@ -1,10 +1,11 @@
+import 'package:delivery_demo/screens/intro/intro_screeen.dart';
 import 'package:delivery_demo/screens/login/components/custom_text_input.dart';
 import 'package:delivery_demo/utils/helper.dart';
 import 'package:flutter/material.dart';
 import '../../const/colors.dart';
 
 class LoginScreen extends StatefulWidget {
-  static const routName = "/loginScreen";
+  static const routeName = "/loginScreen";
   const LoginScreen({super.key});
 
   @override
@@ -44,14 +45,33 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed(IntroScreen.routeName);
+                    },
                     child: const Text('Login'),
                   ),
                 ),
                 const Spacer(),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Text('Esqueceu a senha?'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Esqueceu a senha?'),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        print('object');
+                      },
+                      child: const Text(
+                        'Clique aqui.',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const Spacer(),
                 const Text(

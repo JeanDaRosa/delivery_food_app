@@ -1,3 +1,4 @@
+import 'package:delivery_demo/screens/intro/intro_screeen.dart';
 import 'package:delivery_demo/screens/login/landing_screen.dart';
 import 'package:delivery_demo/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,8 @@ class MyApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         LandingScreen.routeName: (context) => const LandingScreen(),
-        LoginScreen.routName: (context) => const LoginScreen(),
+        LoginScreen.routeName: (context) => const LoginScreen(),
+        IntroScreen.routeName: (context) => const IntroScreen(),
       },
     );
   }
