@@ -1,5 +1,6 @@
 import 'package:delivery_demo/screens/intro/intro_screeen.dart';
 import 'package:delivery_demo/screens/login/components/custom_text_input.dart';
+import 'package:delivery_demo/screens/login/sign_up_screen.dart';
 import 'package:delivery_demo/utils/helper.dart';
 import 'package:flutter/material.dart';
 import '../../const/colors.dart';
@@ -124,23 +125,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Spacer(
                   flex: 4,
                 ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Ainda não tem uma conta?',
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Registrese aqui',
-                      style: TextStyle(
-                        color: AppColor.orange,
-                        fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context)
+                        .pushReplacementNamed(SignUpScreen.routeName);
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Ainda não tem uma conta?',
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Registrese aqui',
+                        style: TextStyle(
+                          color: AppColor.orange,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

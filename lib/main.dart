@@ -1,6 +1,7 @@
 import 'package:delivery_demo/screens/intro/intro_screeen.dart';
 import 'package:delivery_demo/screens/login/landing_screen.dart';
 import 'package:delivery_demo/screens/login/login_screen.dart';
+import 'package:delivery_demo/screens/login/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 import './const/colors.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
         LandingScreen.routeName: (context) => const LandingScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         IntroScreen.routeName: (context) => const IntroScreen(),
+        SignUpScreen.routeName: (context) => const SignUpScreen(),
       },
     );
   }
