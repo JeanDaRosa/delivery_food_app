@@ -60,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Já tem uma conta?"),
-                    SizedBox(width: 10,),
+                    SizedBox(width: 4,),
                     Text(
                       "Login",
                       style: TextStyle(

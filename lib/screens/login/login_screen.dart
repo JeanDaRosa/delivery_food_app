@@ -137,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Ainda não tem uma conta?',
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 4,
                       ),
                       Text(
                         'Registrese aqui',
