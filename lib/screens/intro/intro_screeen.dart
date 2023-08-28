@@ -1,4 +1,6 @@
+import 'package:delivery_demo/screens/intro/models/intro_page.dart';
 import 'package:flutter/material.dart';
+import 'package:rx_notifier/rx_notifier.dart';
 import '../../utils/helper.dart';
 import '../../const/colors.dart';
 
@@ -13,30 +15,29 @@ class IntroScreen extends StatefulWidget {
 class _IntroScreenState extends State<IntroScreen> {
   late PageController _controller;
 
-  late int count;
-  final List<Map<String, String>> _pages = [
-    {
-      "image": "vector1.png",
-      "title": "Várias opções",
-      "desc": "Descubra as melhores comidas nos mais diversos restaurantes",
-    },
-    {
-      "image": "vector2.png",
-      "title": "Entrega rápida",
-      "desc": "Entrega rápida de comida em sua casa, escritório ou onde você estiver",
-    },
-    {
-      "image": "vector3.png",
-      "title": "Rastramento ao vivo",
-      "desc": "Rastreamento em tempo real de sua comida no aplicativo assim que você fizer o pedido",
-    },
-  ];
+  final indexPage = RxNotifier<int>(0);
+
+  final _pages = <IntroPage>[];
+
+  void addPage() {
+    _pages.add(IntroPage(image: "vector1.png", desc: "Descubra as melhores comidas nos mais diversos restaurantes", title: "Várias opções"));
+    _pages.add(IntroPage(image: "vector2.png", desc: "Entrega rápida de comida em sua casa, escritório ou onde você estiver", title: "Entrega rápida"));
+    _pages.add(IntroPage(image: "vector3.png", desc: "Rastreamento em tempo real de sua comida no aplicativo assim que você fizer o pedido", title: "Rastramento ao vivo"));
+  }
 
   @override
   void initState() {
+    addPage();
+
     _controller = PageController();
-    count = 0;
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    indexPage.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -57,47 +58,48 @@ class _IntroScreenState extends State<IntroScreen> {
                   child: PageView.builder(
                     controller: _controller,
                     onPageChanged: (value) {
-                      setState(() {
-                        count = value;
-                      });
+                     indexPage.value = value;
                     },
-                    itemBuilder: (context, index) {
-                      return Image.asset(Helper.getAssetName(_pages[index]["image"]!, "virtual"));
+                    itemBuilder: (final context,final index) {
+                      return Image.asset(Helper.getAssetName(_pages[index].image, "virtual"));
                     },
                     itemCount: _pages.length,
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                      radius: 5,
-                      backgroundColor: count == 0 ? AppColor.orange : AppColor.placeholder,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    CircleAvatar(
-                      radius: 5,
-                      backgroundColor: count == 1 ? AppColor.orange : AppColor.placeholder,
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    CircleAvatar(
-                      radius: 5,
-                      backgroundColor: count == 2 ? AppColor.orange : AppColor.placeholder,
-                    )
-                  ],
+                RxBuilder(
+                  builder:  (_) => 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 5,
+                        backgroundColor: indexPage.value == 0 ? AppColor.orange : AppColor.placeholder,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      CircleAvatar(
+                        radius: 5,
+                        backgroundColor: indexPage.value == 1 ? AppColor.orange : AppColor.placeholder,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      CircleAvatar(
+                        radius: 5,
+                        backgroundColor: indexPage.value == 2 ? AppColor.orange : AppColor.placeholder,
+                      )
+                    ],
+                  )
                 ),
                 const Spacer(),
                 Text(
-                  _pages[count]["title"]!,
+                  _pages[indexPage.value].title,
                   style: Helper.getTheme(context).labelSmall,
                 ),
                 const Spacer(),
                 Text(
-                  _pages[count]["desc"]!,
+                  _pages[indexPage.value].desc,
                   textAlign: TextAlign.center,
                 ),
                 const Spacer(),
@@ -105,12 +107,15 @@ class _IntroScreenState extends State<IntroScreen> {
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {
-                        // Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
-                      },
-                      child: const Text("Next")),
+                    onPressed: () {
+                      // Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                    },
+                    child: const Text(
+                      "Next",
+                    ),
+                  ),
                 ),
-                const Spacer()
+                const Spacer(),
               ],
             ),
           ),
