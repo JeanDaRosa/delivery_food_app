@@ -1,3 +1,4 @@
+import 'package:delivery_demo/screens/home/home_screen.dart';
 import 'package:delivery_demo/screens/intro/models/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:rx_notifier/rx_notifier.dart';
@@ -58,40 +59,38 @@ class _IntroScreenState extends State<IntroScreen> {
                   child: PageView.builder(
                     controller: _controller,
                     onPageChanged: (value) {
-                     indexPage.value = value;
+                      indexPage.value = value;
                     },
-                    itemBuilder: (final context,final index) {
+                    itemBuilder: (final context, final index) {
                       return Image.asset(Helper.getAssetName(_pages[index].image, "virtual"));
                     },
                     itemCount: _pages.length,
                   ),
                 ),
                 RxBuilder(
-                  builder:  (_) => 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 5,
-                        backgroundColor: indexPage.value == 0 ? AppColor.orange : AppColor.placeholder,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      CircleAvatar(
-                        radius: 5,
-                        backgroundColor: indexPage.value == 1 ? AppColor.orange : AppColor.placeholder,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      CircleAvatar(
-                        radius: 5,
-                        backgroundColor: indexPage.value == 2 ? AppColor.orange : AppColor.placeholder,
-                      )
-                    ],
-                  )
-                ),
+                    builder: (_) => Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 5,
+                              backgroundColor: indexPage.value == 0 ? AppColor.orange : AppColor.placeholder,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            CircleAvatar(
+                              radius: 5,
+                              backgroundColor: indexPage.value == 1 ? AppColor.orange : AppColor.placeholder,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            CircleAvatar(
+                              radius: 5,
+                              backgroundColor: indexPage.value == 2 ? AppColor.orange : AppColor.placeholder,
+                            )
+                          ],
+                        )),
                 const Spacer(),
                 Text(
                   _pages[indexPage.value].title,
@@ -108,7 +107,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
                     },
                     child: const Text(
                       "Next",

@@ -1,3 +1,4 @@
+import 'package:delivery_demo/screens/home/home_screen.dart';
 import 'package:delivery_demo/screens/intro/intro_screeen.dart';
 import 'package:delivery_demo/screens/login/landing_screen.dart';
 import 'package:delivery_demo/screens/login/login_screen.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => const LoginScreen(),
         IntroScreen.routeName: (context) => const IntroScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
       },
     );
   }

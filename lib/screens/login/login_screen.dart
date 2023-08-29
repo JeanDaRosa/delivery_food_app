@@ -2,6 +2,7 @@ import 'package:delivery_demo/screens/intro/intro_screeen.dart';
 import 'package:delivery_demo/screens/login/components/custom_text_input.dart';
 import 'package:delivery_demo/screens/login/sign_up_screen.dart';
 import 'package:delivery_demo/utils/helper.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../const/colors.dart';
 
@@ -62,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        print('object');
+                        debugPrint('object');
                       },
                       child: const Text(
                         'Clique aqui.',
@@ -126,9 +127,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   flex: 4,
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.of(context)
-                        .pushReplacementNamed(SignUpScreen.routeName);
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed(SignUpScreen.routeName);
                   },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
